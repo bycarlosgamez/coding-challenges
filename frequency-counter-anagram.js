@@ -17,7 +17,7 @@ let validAnagram = (str1, str2) => {
   // loop thorugh str2
   // if letter not on map return false
   // else substract one to letter
-  // loop through map values and and if any ond them are > 0 return false else return true
+  // return true
 
   let map = {};
 
@@ -32,12 +32,10 @@ let validAnagram = (str1, str2) => {
   }
 
   for (let l of str2) {
-    map[l] ? (map[l] -= 1) : false;
-  }
-
-  for (let l of Object.values(map)) {
-    if (l > 0) {
+    if (!map[l]) {
       return false;
+    } else {
+      map[l] -= 1;
     }
   }
   return true;
